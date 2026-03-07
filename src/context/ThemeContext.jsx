@@ -5,12 +5,14 @@ const ThemeContext = createContext()
 export const useThemeContext = () => useContext(ThemeContext)
 
 export const ThemePickerProvider = ({ children }) => {
-  const [isDarkTheme, setTheme] = useState(false)
+  const [isDarkTheme, setTheme] = useState(
+    () => window.matchMedia("(prefers-color-scheme: dark)").matches,
+  )
   const toggleTheme = () => {
     setTheme((prev) => !prev)
   }
   useEffect(() => {
-    document.body.classList.toggle("dark-theme", isDarkTheme)
+    document.documentElement.classList.toggle("dark", isDarkTheme)
   }, [isDarkTheme])
   return (
     <ThemeContext.Provider value={{ isDarkTheme, toggleTheme }}>
