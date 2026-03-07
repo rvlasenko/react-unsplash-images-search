@@ -1,12 +1,13 @@
-import { useSearchContext } from "./search-context"
+import { useState } from "react"
+import { useSearchContext } from "../context/SearchContext"
 
 const SearchForm = () => {
-  const { setQuery } = useSearchContext()
+  const { query, setQuery } = useSearchContext()
+  const [value, setValue] = useState(query)
   const handleSubmit = (e) => {
     e.preventDefault()
-    const query = e.target.elements.search.value
-    if (!query.trim()) return
-    setQuery(query)
+    if (!value.trim()) return
+    setQuery(value)
   }
 
   return (
@@ -17,6 +18,8 @@ const SearchForm = () => {
           name="search"
           placeholder="cat"
           className="form-input search-input"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
           required
         />
         <button className="btn">Search</button>

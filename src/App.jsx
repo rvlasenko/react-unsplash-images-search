@@ -1,6 +1,6 @@
-import SearchForm from "./SearchForm"
-import ThemeToggle from "./ThemeToggle"
-import Gallery from "./Gallery"
+import SearchForm from "./components/SearchForm"
+import ThemeToggle from "./components/ThemeToggle"
+import Gallery from "./components/Gallery"
 
 const App = () => {
   return (
