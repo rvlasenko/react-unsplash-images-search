@@ -1,16 +1,16 @@
 import { useQuery } from "@tanstack/react-query"
 import api from "./api"
+import { useSearchContext } from "./search-context"
 
-export const usePosts = () => {
+export const useImages = () => {
+  const { query } = useSearchContext()
   return useQuery({
-    queryKey: ["images", "cat"],
+    queryKey: ["images", query],
     queryFn: async () => {
-      const { data } = await api.get("/", {
-        params: {
-          query: "cat",
-        },
+      const result = await api.get("/", {
+        params: { query },
       })
-      return data
+      return result.data
     },
   })
 }

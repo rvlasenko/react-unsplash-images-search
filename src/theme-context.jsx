@@ -1,10 +1,10 @@
 import { createContext, useContext, useEffect, useState } from "react"
 
-export const ThemeContext = createContext()
+const ThemeContext = createContext()
 
 export const useThemeContext = () => useContext(ThemeContext)
 
-export const ThemePicker = ({ children }) => {
+export const ThemePickerProvider = ({ children }) => {
   const [isDarkTheme, setTheme] = useState(false)
   const toggleTheme = () => {
     setTheme((prev) => !prev)

@@ -1,7 +1,12 @@
+import { useSearchContext } from "./search-context"
+
 const SearchForm = () => {
+  const { setQuery } = useSearchContext()
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(e.target.elements.search.value)
+    const query = e.target.elements.search.value
+    if (!query.trim()) return
+    setQuery(query)
   }
 
   return (
@@ -12,6 +17,7 @@ const SearchForm = () => {
           name="search"
           placeholder="cat"
           className="form-input search-input"
+          required
         />
         <button className="btn">Search</button>
       </form>
