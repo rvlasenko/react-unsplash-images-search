@@ -50,7 +50,7 @@ const Gallery = () => {
           <img
             key={image.id}
             src={image?.urls?.small}
-            alt={image.alt_description}
+            alt={image.alt_description ?? undefined}
             className="w-full rounded-lg object-cover break-inside-avoid shadow-sm hover:shadow-md transition-shadow duration-200"
           />
         ))}

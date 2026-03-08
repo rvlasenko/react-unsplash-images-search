@@ -4,7 +4,7 @@ import { useSearchContext } from "../context/SearchContext"
 const SearchForm = () => {
   const { query, setQuery } = useSearchContext()
   const [value, setValue] = useState(query)
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!value.trim()) return
     setQuery(value)
