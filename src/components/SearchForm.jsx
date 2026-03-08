@@ -13,7 +13,7 @@ const SearchForm = () => {
   return (
     <form onSubmit={handleSubmit} className="flex max-w-xl mx-auto">
       <input
-        type="text"
+        type="search"
         name="search"
         placeholder="Search images..."
         value={value}
